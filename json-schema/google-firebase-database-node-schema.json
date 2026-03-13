@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://firebase.google.com/schemas/database/node.json",
+  "title": "Firebase Realtime Database Node",
+  "description": "Schema for a node in the Firebase Realtime Database, representing a JSON tree structure with optional rules and indexing.",
+  "type": "object",
+  "properties": {
+    ".read": {
+      "type": ["string", "boolean"],
+      "description": "Security rule for read access"
+    },
+    ".write": {
+      "type": ["string", "boolean"],
+      "description": "Security rule for write access"
+    },
+    ".validate": {
+      "type": "string",
+      "description": "Validation rule for data written to this node"
+    },
+    ".indexOn": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "array", "items": { "type": "string" } }
+      ],
+      "description": "Child keys to index for ordering and querying"
+    }
+  },
+  "additionalProperties": {
+    "$ref": "#/$defs/DatabaseValue"
+  },
+  "$defs": {
+    "DatabaseValue": {
+      "description": "A value stored in the Firebase Realtime Database",
+      "oneOf": [
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "boolean" },
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/DatabaseValue"
+          }
+        }
+      ]
+    }
+  }
+}

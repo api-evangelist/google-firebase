@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://firebase.google.com/schemas/fcm/message.json",
+  "title": "Firebase Cloud Messaging Message",
+  "description": "Schema for a Firebase Cloud Messaging (FCM) HTTP v1 API send request, used to deliver push notifications and data messages to devices.",
+  "type": "object",
+  "required": ["message"],
+  "properties": {
+    "message": {
+      "type": "object",
+      "description": "The message to send",
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "Registration token of the target device"
+        },
+        "topic": {
+          "type": "string",
+          "description": "Topic name to send the message to"
+        },
+        "condition": {
+          "type": "string",
+          "description": "Condition expression for targeting multiple topics"
+        },
+        "notification": {
+          "$ref": "#/$defs/Notification"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Arbitrary key-value payload delivered to the client app"
+        },
+        "android": {
+          "$ref": "#/$defs/AndroidConfig"
+        },
+        "webpush": {
+          "$ref": "#/$defs/WebpushConfig"
+        },
+        "apns": {
+          "$ref": "#/$defs/ApnsConfig"
+        }
+      }
+    },
+    "validate_only": {
+      "type": "boolean",
+      "description": "If true, the message is validated but not sent",
+      "default": false
+    }
+  },
+  "$defs": {
+    "Notification": {
+      "type": "object",
+      "description": "Basic notification template",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The notification title"
+        },
+        "body": {
+          "type": "string",
+          "description": "The notification body text"
+        },
+        "image": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of an image to display in the notification"
+        }
+      }
+    },
+    "AndroidConfig": {
+      "type": "object",
+      "description": "Android-specific message configuration",
+      "properties": {
+        "priority": {
+          "type": "string",
+          "enum": ["NORMAL", "HIGH"]
+        },
+        "ttl": {
+          "type": "string",
+          "description": "Message time-to-live as a duration string (e.g. 3600s)"
+        },
+        "collapse_key": {
+          "type": "string"
+        }
+      }
+    },
+    "WebpushConfig": {
+      "type": "object",
+      "description": "Web push-specific message configuration",
+      "properties": {
+        "headers": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "ApnsConfig": {
+      "type": "object",
+      "description": "Apple Push Notification Service configuration",
+      "properties": {
+        "headers": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+}

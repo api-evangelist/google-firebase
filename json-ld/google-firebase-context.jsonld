@@ -1,0 +1,74 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "firebase": "https://firebase.google.com/ns/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Project": {
+      "@id": "firebase:Project",
+      "@context": {
+        "projectId": "firebase:projectId",
+        "projectNumber": "firebase:projectNumber",
+        "displayName": "schema:name",
+        "state": "firebase:state",
+        "resources": "firebase:resources"
+      }
+    },
+
+    "DatabaseNode": {
+      "@id": "firebase:DatabaseNode",
+      "@context": {
+        "path": "firebase:path",
+        "value": "firebase:value",
+        "priority": "firebase:priority",
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "CloudMessage": {
+      "@id": "firebase:CloudMessage",
+      "@context": {
+        "messageId": "firebase:messageId",
+        "token": "firebase:registrationToken",
+        "topic": "firebase:topic",
+        "condition": "firebase:condition",
+        "title": "schema:headline",
+        "body": "schema:text",
+        "sentAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "HostingSite": {
+      "@id": "firebase:HostingSite",
+      "@context": {
+        "siteId": "firebase:siteId",
+        "defaultUrl": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "appId": "firebase:appId"
+      }
+    },
+
+    "RemoteConfigTemplate": {
+      "@id": "firebase:RemoteConfigTemplate",
+      "@context": {
+        "parameters": "firebase:parameters",
+        "conditions": "firebase:conditions",
+        "version": "schema:version"
+      }
+    }
+  }
+}

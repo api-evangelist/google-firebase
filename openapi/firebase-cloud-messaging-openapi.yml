@@ -1,0 +1,172 @@
+openapi: 3.1.0
+info:
+  title: Firebase Cloud Messaging API (FCM)
+  description: >-
+    The Firebase Cloud Messaging HTTP v1 API enables sending notification and
+    data messages to client apps on Android, iOS, and the web. It supports
+    per-platform message customization, topic messaging, and condition-based
+    targeting.
+  version: v1
+  contact:
+    name: Google Firebase Support
+    url: https://firebase.google.com/support
+  termsOfService: https://firebase.google.com/terms
+externalDocs:
+  description: FCM HTTP v1 API Reference
+  url: https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages
+servers:
+  - url: https://fcm.googleapis.com/v1
+    description: FCM HTTP v1 API Server
+tags:
+  - name: Messages
+    description: Send messages to devices and topics
+security:
+  - oauth2: []
+paths:
+  /projects/{projectId}/messages:send:
+    post:
+      operationId: sendMessage
+      summary: Send a message
+      description: >-
+        Sends a message to the specified target (device token, topic, or
+        condition). Supports notification payloads, data payloads, and
+        platform-specific overrides.
+      tags:
+        - Messages
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          description: The Firebase project ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendMessageRequest'
+      responses:
+        '200':
+          description: Message sent successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '429':
+          description: Too many requests
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/firebase.messaging: Send FCM messages
+  schemas:
+    SendMessageRequest:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          $ref: '#/components/schemas/Message'
+        validate_only:
+          type: boolean
+          description: Flag for testing without actually sending the message
+    Message:
+      type: object
+      description: A message to send via FCM
+      properties:
+        name:
+          type: string
+          description: The identifier of the message (output only)
+          readOnly: true
+        token:
+          type: string
+          description: Registration token of the target device
+        topic:
+          type: string
+          description: Topic name to send to
+        condition:
+          type: string
+          description: Condition expression for targeting
+        notification:
+          $ref: '#/components/schemas/Notification'
+        data:
+          type: object
+          additionalProperties:
+            type: string
+          description: Arbitrary key-value data payload
+        android:
+          $ref: '#/components/schemas/AndroidConfig'
+        webpush:
+          $ref: '#/components/schemas/WebpushConfig'
+        apns:
+          $ref: '#/components/schemas/ApnsConfig'
+    Notification:
+      type: object
+      properties:
+        title:
+          type: string
+          description: The notification title
+        body:
+          type: string
+          description: The notification body text
+        image:
+          type: string
+          description: URL of an image to display in the notification
+    AndroidConfig:
+      type: object
+      properties:
+        priority:
+          type: string
+          enum: [NORMAL, HIGH]
+        ttl:
+          type: string
+          description: Message time-to-live duration (e.g. 3600s)
+        collapse_key:
+          type: string
+        notification:
+          type: object
+          properties:
+            title:
+              type: string
+            body:
+              type: string
+            icon:
+              type: string
+            color:
+              type: string
+            click_action:
+              type: string
+            channel_id:
+              type: string
+    WebpushConfig:
+      type: object
+      properties:
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+        notification:
+          type: object
+          additionalProperties: true
+    ApnsConfig:
+      type: object
+      properties:
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+        payload:
+          type: object
+          additionalProperties: true

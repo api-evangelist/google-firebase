@@ -1,0 +1,206 @@
+openapi: 3.1.0
+info:
+  title: Firebase Realtime Database API
+  description: >-
+    The Firebase Realtime Database REST API provides access to Firebase's
+    cloud-hosted NoSQL JSON database. It allows reading, writing, updating,
+    and deleting data at any node in the database tree, along with filtering
+    and ordering query results.
+  version: '1'
+  contact:
+    name: Google Firebase Support
+    url: https://firebase.google.com/support
+  termsOfService: https://firebase.google.com/terms
+externalDocs:
+  description: Firebase Realtime Database REST Reference
+  url: https://firebase.google.com/docs/reference/rest/database
+servers:
+  - url: https://{projectId}-default-rtdb.firebaseio.com
+    description: Firebase Realtime Database
+    variables:
+      projectId:
+        description: The Firebase project ID
+        default: my-project
+tags:
+  - name: Data
+    description: Operations for reading and writing database nodes
+paths:
+  /{path}.json:
+    get:
+      operationId: getData
+      summary: Read data
+      description: >-
+        Reads data at the specified database path. Returns the JSON data stored
+        at the given location in the database tree.
+      tags:
+        - Data
+      parameters:
+        - $ref: '#/components/parameters/path'
+        - name: auth
+          in: query
+          description: Firebase ID token or database secret for authentication
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          description: The child key or priority to order results by
+          schema:
+            type: string
+        - name: limitToFirst
+          in: query
+          description: Limit the number of results returned from the beginning
+          schema:
+            type: integer
+        - name: limitToLast
+          in: query
+          description: Limit the number of results returned from the end
+          schema:
+            type: integer
+        - name: startAt
+          in: query
+          description: Return items starting at the specified value
+          schema:
+            type: string
+        - name: endAt
+          in: query
+          description: Return items ending at the specified value
+          schema:
+            type: string
+        - name: equalTo
+          in: query
+          description: Return items equal to the specified value
+          schema:
+            type: string
+        - name: shallow
+          in: query
+          description: Return only the keys at the location (no nested data)
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Successful response with data at the path
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseNode'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Path not found
+    put:
+      operationId: setData
+      summary: Write data
+      description: >-
+        Writes data to the specified database path, replacing any existing data
+        at that location.
+      tags:
+        - Data
+      parameters:
+        - $ref: '#/components/parameters/path'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatabaseNode'
+      responses:
+        '200':
+          description: Data written successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseNode'
+        '401':
+          description: Unauthorized
+    patch:
+      operationId: updateData
+      summary: Update data
+      description: >-
+        Updates specific children at the specified path without overwriting
+        the entire node. This performs a multi-path update.
+      tags:
+        - Data
+      parameters:
+        - $ref: '#/components/parameters/path'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Data updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '401':
+          description: Unauthorized
+    post:
+      operationId: pushData
+      summary: Push data
+      description: >-
+        Pushes data to the specified path with an auto-generated unique key.
+        Equivalent to using push() in the Firebase SDK.
+      tags:
+        - Data
+      parameters:
+        - $ref: '#/components/parameters/path'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatabaseNode'
+      responses:
+        '200':
+          description: Data pushed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: The auto-generated key for the new child
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteData
+      summary: Delete data
+      description: Removes data at the specified database path.
+      tags:
+        - Data
+      parameters:
+        - $ref: '#/components/parameters/path'
+      responses:
+        '200':
+          description: Data deleted successfully
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    path:
+      name: path
+      in: path
+      required: true
+      description: The database path to the data node
+      schema:
+        type: string
+  schemas:
+    DatabaseNode:
+      description: >-
+        A node in the Firebase Realtime Database. Can be a primitive value,
+        an object, or an array represented as JSON.
+      oneOf:
+        - type: string
+        - type: number
+        - type: boolean
+        - type: object
+          additionalProperties: true
+        - type: array
+          items: {}
+        - type: 'null'

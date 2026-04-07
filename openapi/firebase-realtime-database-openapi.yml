@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Firebase Realtime Database API
+  title: Google Firebase Firebase Realtime Database API
   description: >-
     The Firebase Realtime Database REST API provides access to Firebase's
     cloud-hosted NoSQL JSON database. It allows reading, writing, updating,
@@ -28,7 +28,7 @@ paths:
   /{path}.json:
     get:
       operationId: getData
-      summary: Read data
+      summary: Google Firebase Read data
       description: >-
         Reads data at the specified database path. Returns the JSON data stored
         at the given location in the database tree.
@@ -89,7 +89,7 @@ paths:
           description: Path not found
     put:
       operationId: setData
-      summary: Write data
+      summary: Google Firebase Write data
       description: >-
         Writes data to the specified database path, replacing any existing data
         at that location.
@@ -114,7 +114,7 @@ paths:
           description: Unauthorized
     patch:
       operationId: updateData
-      summary: Update data
+      summary: Google Firebase Update data
       description: >-
         Updates specific children at the specified path without overwriting
         the entire node. This performs a multi-path update.
@@ -141,7 +141,7 @@ paths:
           description: Unauthorized
     post:
       operationId: pushData
-      summary: Push data
+      summary: Google Firebase Push data
       description: >-
         Pushes data to the specified path with an auto-generated unique key.
         Equivalent to using push() in the Firebase SDK.
@@ -170,7 +170,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteData
-      summary: Delete data
+      summary: Google Firebase Delete data
       description: Removes data at the specified database path.
       tags:
         - Data

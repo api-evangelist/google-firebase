@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Firebase Cloud Messaging API (FCM)
+  title: Google Firebase Firebase Cloud Messaging API (FCM)
   description: >-
     The Firebase Cloud Messaging HTTP v1 API enables sending notification and
     data messages to client apps on Android, iOS, and the web. It supports
@@ -26,7 +26,7 @@ paths:
   /projects/{projectId}/messages:send:
     post:
       operationId: sendMessage
-      summary: Send a message
+      summary: Google Firebase Send a message
       description: >-
         Sends a message to the specified target (device token, topic, or
         condition). Supports notification payloads, data payloads, and

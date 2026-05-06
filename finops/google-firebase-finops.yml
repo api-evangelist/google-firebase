@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -8,161 +9,169 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Google Firebase
 providerId: google-firebase
-publisherName: Google Firebase
-serviceCategory: API
+publisherName: Google LLC
+serviceCategory: Mobile / Web Backend
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - Analytics
-  - Authentication
-  - Backend as a Service
-  - Cloud Messaging
+  - Mobile Backend
+  - Serverless
+  - Realtime Database
   - Google Cloud
-  - Hosting
-  - Mobile
-  - Real-Time Database
   - FinOps
-  - Cost Management
   - FOCUS
-description: FinOps framework definition for the Google Firebase API surface. Provides a FOCUS-aligned
-  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+description: 'FOCUS-aligned FinOps for Firebase: Spark is free with hard caps; Blaze is Pay-As-You-Go
+  using underlying GCP service prices and flows through the standard Cloud Billing pipeline. The dominant
+  meters are Firestore reads/writes/storage, Realtime Database storage and downloads, Cloud Functions
+  invocations and GB-seconds, Cloud Storage, and Hosting transfer.'
+sources:
+  - https://firebase.google.com/pricing
+  - https://cloud.google.com/billing/docs/how-to/export-data-bigquery
 billingModel:
-  pricingCategory: Usage-Based
+  pricingCategory: Free + Pay-As-You-Go
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
     - Usage
     - Purchase
     - Tax
-    - Credit
     - Adjustment
-  chargeFrequency: Recurring
+    - Credit
 focusColumns:
-  ServiceName: Google Firebase
-  ServiceCategory: Developer Tools / API
-  ProviderName: Google Firebase
-  PublisherName: Google Firebase
-  InvoiceIssuerName: Google Firebase
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  ServiceName: Firebase
+  ServiceCategory: Mobile / Web Backend
+  ProviderName: Google Cloud
+  PublisherName: Google LLC
+  InvoiceIssuerName: Google LLC
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
+  - name: firestore_reads
+    description: Firestore document reads
+    unit: read
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
+      - project
+      - database
       - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
+  - name: firestore_writes
+    description: Firestore document writes (and deletes)
+    unit: write
+    aggregation: sum
+    dimensions:
+      - project
+      - database
+      - region
+  - name: firestore_storage
+    description: Firestore stored data
+    unit: GiB-month
+    aggregation: max
+    dimensions:
+      - project
+      - database
+      - region
+  - name: rtdb_storage
+    description: Realtime Database stored data
+    unit: GB-month
+    aggregation: max
+    dimensions:
+      - project
+      - database
+  - name: rtdb_downloads
+    description: Realtime Database egress downloads
     unit: GB
     aggregation: sum
     dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
+      - project
+      - database
+  - name: cloud_storage_gb
+    description: Firebase-managed Cloud Storage stored data
+    unit: GB-month
+    aggregation: max
+    dimensions:
+      - project
+      - bucket
+      - storage_class
+  - name: cloud_storage_egress
+    description: Cloud Storage downloads / egress
+    unit: GB
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
+      - project
+      - bucket
+      - destination
+  - name: functions_invocations
+    description: Cloud Functions invocations
+    unit: invocation
+    aggregation: sum
+    dimensions:
+      - project
+      - function
+      - region
+  - name: functions_gb_seconds
+    description: Cloud Functions GB-seconds
+    unit: GB-second
+    aggregation: sum
+    dimensions:
+      - project
+      - function
+      - region
+  - name: hosting_bandwidth
+    description: Firebase Hosting data transfer
+    unit: GB
+    aggregation: sum
+    dimensions:
+      - site
+      - region
+  - name: auth_mau
+    description: Authentication monthly active users (Identity Platform billing above 50K)
+    unit: MAU
+    aggregation: max
+    dimensions:
+      - project
+      - sign_in_method
 apis:
-  - name: Firebase Realtime Database API
-    baseURL: https://firebaseio.com
-    tags:
-      - Database
-      - JSON
-      - NoSQL
-      - Real-Time
-    serviceName: Firebase Realtime Database API
-    serviceCategory: API
-  - name: Firebase Cloud Messaging API (FCM)
-    baseURL: https://fcm.googleapis.com
-    tags:
-      - Messaging
-      - Mobile
-      - Push Notifications
-    serviceName: Firebase Cloud Messaging API (FCM)
-    serviceCategory: API
-  - name: Firebase Authentication REST API
-    baseURL: https://identitytoolkit.googleapis.com
-    tags:
-      - Authentication
-      - Identity
-      - Users
-    serviceName: Firebase Authentication REST API
-    serviceCategory: API
-  - name: Firebase Hosting REST API
+  - name: Cloud Firestore API
+    baseURL: https://firestore.googleapis.com
+    serviceName: Cloud Firestore
+    serviceCategory: Database
+  - name: Realtime Database
+    baseURL: https://firebasedatabase.googleapis.com
+    serviceName: Realtime Database
+    serviceCategory: Database
+  - name: Cloud Storage for Firebase
+    baseURL: https://firebasestorage.googleapis.com
+    serviceName: Cloud Storage for Firebase
+    serviceCategory: Storage
+  - name: Cloud Functions for Firebase
+    baseURL: https://cloudfunctions.googleapis.com
+    serviceName: Cloud Functions
+    serviceCategory: Compute
+  - name: Firebase Hosting API
     baseURL: https://firebasehosting.googleapis.com
-    tags:
-      - Deployment
-      - Hosting
-      - Web
-    serviceName: Firebase Hosting REST API
-    serviceCategory: API
-  - name: Firebase Remote Config API
-    baseURL: https://firebaseremoteconfig.googleapis.com
-    tags:
-      - Configuration
-      - Feature Flags
-      - Remote Config
-    serviceName: Firebase Remote Config API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+    serviceName: Firebase Hosting
+    serviceCategory: Hosting
+  - name: Firebase Authentication / Identity Toolkit
+    baseURL: https://identitytoolkit.googleapis.com
+    serviceName: Firebase Authentication
+    serviceCategory: Identity
+principles:
+  - name: Visibility
+    description: Enable Cloud Billing detailed export to BigQuery; filter to Firebase services. Use the
+      Firebase console's Usage and Billing dashboards per-service to spot trend breaks.
+  - name: Allocation
+    description: Use one Firebase project per environment/team and tag underlying GCP resources with team
+      labels for chargeback. For multi-tenant apps, write a custom dimension into Firestore reads/writes
+      via labels in your BigQuery export.
+  - name: Optimization
+    description: Cache Firestore reads (memoize hot documents); reduce listener fan-out by querying narrower
+      paths; deny anonymous Hosting traffic at the CDN edge; right-size Cloud Functions memory; convert
+      legacy Cloud Storage default buckets to managed buckets to reduce egress.
+  - name: Accountability
+    description: Set Cloud Billing budgets per Firebase project at 50/80/100% with Pub/Sub triggers; configure
+      project-level spend caps; review monthly which services account for the top 80% of spend and target
+      optimization there.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

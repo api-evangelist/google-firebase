@@ -4,109 +4,102 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Google Firebase
 providerId: google-firebase
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - Analytics
-  - Authentication
-  - Backend as a Service
-  - Cloud Messaging
+  - Mobile Backend
+  - Serverless
+  - Realtime Database
   - Google Cloud
-  - Hosting
-  - Mobile
-  - Real-Time Database
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Google Firebase API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+description: Firebase services run on Google Cloud and inherit per-service quotas. The most actionable
+  per-service limits are summarized below. Spark plan caps absolute usage at the free quota; Blaze plan
+  removes the hard caps but retains per-service operational ceilings (e.g., Firestore writes-per-second
+  per document, Realtime Database concurrent connections, Cloud Functions max instances). Quotas are
+  raisable via the Cloud Console quotas page.
+sources:
+  - https://firebase.google.com/pricing
+  - https://firebase.google.com/docs/firestore/quotas
+  - https://firebase.google.com/docs/database/usage/limits
+  - https://firebase.google.com/docs/functions/quotas
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
+  quotaExceeded: 403
+  resourceExhausted: 429
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Firebase Realtime Database API
-      - Firebase Cloud Messaging API (FCM)
-      - Firebase Authentication REST API
-      - Firebase Hosting REST API
-      - Firebase Remote Config API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Firebase Realtime Database API
-      - Firebase Cloud Messaging API (FCM)
-      - Firebase Authentication REST API
-      - Firebase Hosting REST API
-      - Firebase Remote Config API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
+  - name: Firestore writes per second per document
+    scope: document
+    metric: writes_per_second
+    limit: 1
+    timeFrame: second
+    notes: Soft limit; sustained higher write rate to a single document causes contention.
+  - name: Firestore writes per second per index field
+    scope: index-field
+    metric: writes_per_second
+    limit: 500
+    timeFrame: second
+  - name: Realtime Database concurrent connections (Spark)
+    scope: database
+    metric: concurrent_connections
     limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Firebase Realtime Database API
-      - Firebase Cloud Messaging API (FCM)
-      - Firebase Authentication REST API
-      - Firebase Hosting REST API
-      - Firebase Remote Config API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Firebase Realtime Database API
-      - Firebase Cloud Messaging API (FCM)
-      - Firebase Authentication REST API
-      - Firebase Hosting REST API
-      - Firebase Remote Config API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
+  - name: Realtime Database concurrent connections (Blaze)
+    scope: database
+    metric: concurrent_connections
+    limit: 200000
+  - name: Realtime Database simultaneous writes
+    scope: database
+    metric: writes_per_second
     limit: 1000
-    burst: 5000
+    timeFrame: second
+    notes: Approximate sustained ceiling; throughput depends on write size.
+  - name: Cloud Functions max concurrent invocations (default)
+    scope: function
+    metric: concurrent_invocations
+    limit: 1000
+    notes: Default per-function concurrency; raisable via Cloud Console.
+  - name: Cloud Functions outbound networking (free)
+    scope: project
+    metric: GB_per_month
+    limit: 5
+    timeFrame: month
+  - name: Cloud Storage download (free Spark)
+    scope: project
+    metric: GB_per_day
+    limit: 1
+    timeFrame: day
+  - name: Hosting daily data transfer (free Spark)
+    scope: site
+    metric: MB_per_day
+    limit: 360
+    timeFrame: day
+  - name: Authentication monthly active users (free)
+    scope: project
+    metric: MAU
+    limit: 50000
+    timeFrame: month
+    notes: Beyond 50K MAU, Identity Platform pricing applies (Auth with IdP upgrade).
+  - name: Cloud Messaging (FCM) topic-message rate
+    scope: app
+    metric: requests_per_second
+    limit: 600000
     timeFrame: minute
-    applies:
-      - Firebase Realtime Database API
-      - Firebase Cloud Messaging API (FCM)
-      - Firebase Authentication REST API
-      - Firebase Hosting REST API
-      - Firebase Remote Config API
+    notes: Per-project topic message ceiling; check current FCM docs for exact value.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Spark plan hard caps
+    description: On the Spark plan, when a free quota is exhausted, the service stops responding (or returns
+      quota errors) until the next reset. There is no overage; upgrade to Blaze to continue.
+  - name: Blaze plan soft caps
+    description: On Blaze, free quotas are deducted first; usage above is billed at GCP rates. Per-service
+      operational limits (concurrency, document write rate) remain and may need quota raises for production.
+  - name: Quota raises
+    description: Most operational quotas (Cloud Functions concurrency, Firestore index counts, Realtime
+      Database connections via sharding) can be raised through the Cloud Console quotas page on Blaze.
+  - name: Backoff strategy
+    description: Implement exponential backoff with jitter on 429 / 403; for Firestore, use sharded counters
+      and randomized document IDs to spread write load.
+  - name: Auth pricing transition
+    description: Authentication transitions to Identity Platform pricing above 50K MAU; review Identity
+      Platform per-MAU rates if scaling beyond the free tier.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

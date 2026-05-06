@@ -1,0 +1,83 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Firebase Firebase Cloud Messaging API (FCM)
+  description: The Firebase Cloud Messaging HTTP v1 API enables sending notification and data messages to client apps on Android,
+    iOS, and the web. It supports per-platform message customization, topic messaging, and condition-based targeting.
+  tags:
+  - Google
+  - Firebase
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-firebase
+    baseUri: https://fcm.googleapis.com/v1
+    description: Google Firebase Firebase Cloud Messaging API (FCM) HTTP API.
+    authentication:
+      type: bearer
+      token: '{{GOOGLE_FIREBASE_TOKEN}}'
+    resources:
+    - name: projects-projectid-messages-send
+      path: /projects/{projectId}/messages:send
+      operations:
+      - name: sendmessage
+        method: POST
+        description: Google Firebase Send a message
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+          description: The Firebase project ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-firebase-rest
+    description: REST adapter for Google Firebase Firebase Cloud Messaging API (FCM).
+    resources:
+    - path: /projects/{projectId}/messages:send
+      name: sendmessage
+      operations:
+      - method: POST
+        name: sendmessage
+        description: Google Firebase Send a message
+        call: google-firebase.sendmessage
+        with:
+          projectId: rest.projectId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-firebase-mcp
+    transport: http
+    description: MCP adapter for Google Firebase Firebase Cloud Messaging API (FCM) for AI agent use.
+    tools:
+    - name: sendmessage
+      description: Google Firebase Send a message
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-firebase.sendmessage
+      with:
+        projectId: tools.projectId
+      inputParameters:
+      - name: projectId
+        type: string
+        description: The Firebase project ID
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    GOOGLE_FIREBASE_TOKEN: GOOGLE_FIREBASE_TOKEN

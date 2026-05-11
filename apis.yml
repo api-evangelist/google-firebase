@@ -124,6 +124,21 @@ common:
     url: https://status.firebase.google.com
   - type: JSON-LD
     url: json-ld/google-firebase-context.jsonld
+  - type: Integrations
+    url: https://firebase.google.com/integrations
+integrations:
+  - name: Firebase
+  - name: Flutter
+  - name: Google Ads
+  - name: AdMob video
+  - name: Google Marketing Platform
+  - name: Google Play
+  - name: Looker Studio
+  - name: BigQuery
+  - name: Slack
+  - name: Jira
+  - name: Android Studio
+  - name: Google Developers
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -120,9 +120,9 @@ common:
     url: https://firebase.google.com/docs/libraries
   - type: Support
     url: https://firebase.google.com/support
-  - type: Status
+  - type: StatusPage
     url: https://status.firebase.google.com
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/google-firebase-context.jsonld
   - type: Integrations
     url: https://firebase.google.com/integrations

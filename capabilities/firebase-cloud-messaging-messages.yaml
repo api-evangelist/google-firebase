@@ -1,0 +1,88 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Firebase Firebase Cloud Messaging API (FCM) — Messages
+  description: 'Google Firebase Firebase Cloud Messaging API (FCM) — Messages. 1 operations. Lead operation: Google Firebase
+    Send a message. Self-contained Naftiko capability covering one Google Firebase business surface.'
+  tags:
+  - Google Firebase
+  - Messages
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_FIREBASE_API_KEY: GOOGLE_FIREBASE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: firebase-cloud-messaging-messages
+    baseUri: https://fcm.googleapis.com/v1
+    description: Google Firebase Firebase Cloud Messaging API (FCM) — Messages business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: projects-projectId-messages:send
+      path: /projects/{projectId}/messages:send
+      operations:
+      - name: sendmessage
+        method: POST
+        description: Google Firebase Send a message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          description: The Firebase project ID
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_FIREBASE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: firebase-cloud-messaging-messages-rest
+    port: 8080
+    description: REST adapter for Google Firebase Firebase Cloud Messaging API (FCM) — Messages. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/messages-send
+      name: projects-projectid-messages-send
+      description: REST surface for projects-projectId-messages:send.
+      operations:
+      - method: POST
+        name: sendmessage
+        description: Google Firebase Send a message
+        call: firebase-cloud-messaging-messages.sendmessage
+        with:
+          projectId: rest.projectId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: firebase-cloud-messaging-messages-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Firebase Firebase Cloud Messaging API (FCM) — Messages. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: google-firebase-send-message
+      description: Google Firebase Send a message
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: firebase-cloud-messaging-messages.sendmessage
+      with:
+        projectId: tools.projectId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

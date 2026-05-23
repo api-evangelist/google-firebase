@@ -1,0 +1,7 @@
+name: Google Firebase Domain Vocabulary
+provider: Google Firebase
+providerId: google-firebase
+description: Tag-derived vocabulary for the Google Firebase API surface; sourced from openapi/ tags.
+terms:
+- term: Data
+  description: Operations for reading and writing database nodes

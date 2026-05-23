@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Notification",
+  "title": "Notification",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The notification title"
+    },
+    "body": {
+      "type": "string",
+      "description": "The notification body text"
+    },
+    "image": {
+      "type": "string",
+      "description": "URL of an image to display in the notification"
+    }
+  }
+}

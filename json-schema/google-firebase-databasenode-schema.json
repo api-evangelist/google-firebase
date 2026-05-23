@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DatabaseNode",
+  "title": "DatabaseNode",
+  "description": "A node in the Firebase Realtime Database. Can be a primitive value, an object, or an array represented as JSON.",
+  "oneOf": [
+    {
+      "type": "string"
+    },
+    {
+      "type": "number"
+    },
+    {
+      "type": "boolean"
+    },
+    {
+      "type": "object",
+      "additionalProperties": true
+    },
+    {
+      "type": "array",
+      "items": {}
+    },
+    {
+      "type": "null"
+    }
+  ]
+}

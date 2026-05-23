@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Message",
+  "title": "Message",
+  "type": "object",
+  "description": "A message to send via FCM",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The identifier of the message (output only)",
+      "readOnly": true
+    },
+    "token": {
+      "type": "string",
+      "description": "Registration token of the target device"
+    },
+    "topic": {
+      "type": "string",
+      "description": "Topic name to send to"
+    },
+    "condition": {
+      "type": "string",
+      "description": "Condition expression for targeting"
+    },
+    "notification": {
+      "$ref": "#/components/schemas/Notification"
+    },
+    "data": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Arbitrary key-value data payload"
+    },
+    "android": {
+      "$ref": "#/components/schemas/AndroidConfig"
+    },
+    "webpush": {
+      "$ref": "#/components/schemas/WebpushConfig"
+    },
+    "apns": {
+      "$ref": "#/components/schemas/ApnsConfig"
+    }
+  }
+}

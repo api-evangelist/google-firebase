@@ -1,0 +1,63 @@
+{
+  "provider": "Google Firebase",
+  "providerId": "google-firebase",
+  "kind": "json-structure",
+  "description": "Structural overview of the Google Firebase API surface; extracted from openapi/.",
+  "schemaCount": 1,
+  "operationCount": 5,
+  "schemas": [
+    {
+      "name": "DatabaseNode",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/{path}.json",
+      "operationId": "getData",
+      "summary": "Google Firebase Read data",
+      "tags": [
+        "Data"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/{path}.json",
+      "operationId": "pushData",
+      "summary": "Google Firebase Push data",
+      "tags": [
+        "Data"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/{path}.json",
+      "operationId": "setData",
+      "summary": "Google Firebase Write data",
+      "tags": [
+        "Data"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/{path}.json",
+      "operationId": "deleteData",
+      "summary": "Google Firebase Delete data",
+      "tags": [
+        "Data"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/{path}.json",
+      "operationId": "updateData",
+      "summary": "Google Firebase Update data",
+      "tags": [
+        "Data"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AndroidConfig",
+  "title": "AndroidConfig",
+  "type": "object",
+  "properties": {
+    "priority": {
+      "type": "string",
+      "enum": [
+        "NORMAL",
+        "HIGH"
+      ]
+    },
+    "ttl": {
+      "type": "string",
+      "description": "Message time-to-live duration (e.g. 3600s)"
+    },
+    "collapse_key": {
+      "type": "string"
+    },
+    "notification": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "click_action": {
+          "type": "string"
+        },
+        "channel_id": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

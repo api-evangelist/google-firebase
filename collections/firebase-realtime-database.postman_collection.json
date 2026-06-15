@@ -1,0 +1,910 @@
+{
+  "item": [
+    {
+      "id": "e1223b50-0d7f-4735-8158-8fb6e1d1df75",
+      "name": "Data",
+      "description": {
+        "content": "Operations for reading and writing database nodes",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "47301bb3-fd96-496b-ae18-ae7e571be419",
+          "name": "Google Firebase Read data",
+          "request": {
+            "name": "Google Firebase Read data",
+            "description": {
+              "content": "Reads data at the specified database path. Returns the JSON data stored at the given location in the database tree.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "{{path}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "auth",
+                  "value": "<string>",
+                  "description": "Firebase ID token or database secret for authentication"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "The child key or priority to order results by"
+                },
+                {
+                  "disabled": false,
+                  "key": "limitToFirst",
+                  "value": "<integer>",
+                  "description": "Limit the number of results returned from the beginning"
+                },
+                {
+                  "disabled": false,
+                  "key": "limitToLast",
+                  "value": "<integer>",
+                  "description": "Limit the number of results returned from the end"
+                },
+                {
+                  "disabled": false,
+                  "key": "startAt",
+                  "value": "<string>",
+                  "description": "Return items starting at the specified value"
+                },
+                {
+                  "disabled": false,
+                  "key": "endAt",
+                  "value": "<string>",
+                  "description": "Return items ending at the specified value"
+                },
+                {
+                  "disabled": false,
+                  "key": "equalTo",
+                  "value": "<string>",
+                  "description": "Return items equal to the specified value"
+                },
+                {
+                  "disabled": false,
+                  "key": "shallow",
+                  "value": "<boolean>",
+                  "description": "Return only the keys at the location (no nested data)"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The Firebase project ID",
+                  "type": "any",
+                  "value": "{{projectId}}",
+                  "key": "projectId"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c27f14fa-ac9a-4813-82b6-6d80fda32bf7",
+              "name": "Successful response with data at the path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "{{path}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limitToFirst",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limitToLast",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "equalTo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "shallow",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Firebase project ID",
+                      "type": "any",
+                      "value": "{{projectId}}",
+                      "key": "projectId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e37ece5-c3d6-42d2-9723-68cf355bf997",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "{{path}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limitToFirst",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limitToLast",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "equalTo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "shallow",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Firebase project ID",
+                      "type": "any",
+                      "value": "{{projectId}}",
+                      "key": "projectId"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d0cdcd72-3e1a-4724-b4d0-b7654d9e1e7b",
+              "name": "Path not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "{{path}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limitToFirst",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limitToLast",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "equalTo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "shallow",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Firebase project ID",
+                      "type": "any",
+                      "value": "{{projectId}}",
+                      "key": "projectId"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b861b81-dc83-4a8e-a708-e780899832f1",
+          "name": "Google Firebase Write data",
+          "request": {
+            "name": "Google Firebase Write data",
+            "description": {
+              "content": "Writes data to the specified database path, replacing any existing data at that location.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "{{path}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Firebase project ID",
+                  "type": "any",
+                  "value": "{{projectId}}",
+                  "key": "projectId"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e39c3908-0b7e-44bd-97b1-24d180120bf0",
+              "name": "Data written successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "{{path}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Firebase project ID",
+                      "type": "any",
+                      "value": "{{projectId}}",
+                      "key": "projectId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f5d6f98-2f42-40a6-b383-106b1f6fa91c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "{{path}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Firebase project ID",
+                      "type": "any",
+                      "value": "{{projectId}}",
+                      "key": "projectId"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af73dff5-af8b-45da-a116-c10c94226ee0",
+          "name": "Google Firebase Update data",
+          "request": {
+            "name": "Google Firebase Update data",
+            "description": {
+              "content": "Updates specific children at the specified path without overwriting the entire node. This performs a multi-path update.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "{{path}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Firebase project ID",
+                  "type": "any",
+                  "value": "{{projectId}}",
+                  "key": "projectId"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": 9158.526615943078\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "df72cb9e-c4cb-4a4f-b581-08fb6a292264",
+              "name": "Data updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "{{path}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Firebase project ID",
+                      "type": "any",
+                      "value": "{{projectId}}",
+                      "key": "projectId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": false,\n  \"key_1\": 2374\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": false,\n  \"key_1\": 2374\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d74bf6d-4e85-4be0-bb4d-0fb99bd53b4a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "{{path}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Firebase project ID",
+                      "type": "any",
+                      "value": "{{projectId}}",
+                      "key": "projectId"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": false,\n  \"key_1\": 2374\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6be407ed-c403-47fa-bab7-b709058e77f9",
+          "name": "Google Firebase Push data",
+          "request": {
+            "name": "Google Firebase Push data",
+            "description": {
+              "content": "Pushes data to the specified path with an auto-generated unique key. Equivalent to using push() in the Firebase SDK.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "{{path}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Firebase project ID",
+                  "type": "any",
+                  "value": "{{projectId}}",
+                  "key": "projectId"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e4870ce9-3d16-46cf-bf6a-0a42c4230607",
+              "name": "Data pushed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "{{path}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Firebase project ID",
+                      "type": "any",
+                      "value": "{{projectId}}",
+                      "key": "projectId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6fffc928-75c2-4e46-8e7e-4319bfb2320b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "{{path}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Firebase project ID",
+                      "type": "any",
+                      "value": "{{projectId}}",
+                      "key": "projectId"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1ef4e29-24bc-4476-a3f5-a1c1e4f0021f",
+          "name": "Google Firebase Delete data",
+          "request": {
+            "name": "Google Firebase Delete data",
+            "description": {
+              "content": "Removes data at the specified database path.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "{{path}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Firebase project ID",
+                  "type": "any",
+                  "value": "{{projectId}}",
+                  "key": "projectId"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "061a5212-65ba-4671-8bc1-f28022ff8cd5",
+              "name": "Data deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "{{path}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Firebase project ID",
+                      "type": "any",
+                      "value": "{{projectId}}",
+                      "key": "projectId"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6a224b8e-c75f-4638-ab36-908e152b86f1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "{{path}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Firebase project ID",
+                      "type": "any",
+                      "value": "{{projectId}}",
+                      "key": "projectId"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The Firebase project ID",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "my-project",
+      "key": "projectId"
+    },
+    {
+      "type": "string",
+      "value": "https://{{projectId}}-default-rtdb.firebaseio.com",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The database path to the data node",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "path"
+    }
+  ],
+  "info": {
+    "_postman_id": "26bc62f9-25a1-49f6-9acd-79dba9a1c282",
+    "name": "Google Firebase Firebase Realtime Database API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Firebase Realtime Database REST API provides access to Firebase's cloud-hosted NoSQL JSON database. It allows reading, writing, updating, and deleting data at any node in the database tree, along with filtering and ordering query results.\n\nContact Support:\n Name: Google Firebase Support",
+      "type": "text/plain"
+    }
+  }
+}

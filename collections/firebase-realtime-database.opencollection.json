@@ -1,0 +1,173 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Firebase Firebase Realtime Database API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Firebase Read data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{projectId}-default-rtdb.firebaseio.com/:path.json",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The database path to the data node"
+              },
+              {
+                "name": "auth",
+                "value": "",
+                "type": "query",
+                "description": "Firebase ID token or database secret for authentication"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "The child key or priority to order results by"
+              },
+              {
+                "name": "limitToFirst",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results returned from the beginning"
+              },
+              {
+                "name": "limitToLast",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results returned from the end"
+              },
+              {
+                "name": "startAt",
+                "value": "",
+                "type": "query",
+                "description": "Return items starting at the specified value"
+              },
+              {
+                "name": "endAt",
+                "value": "",
+                "type": "query",
+                "description": "Return items ending at the specified value"
+              },
+              {
+                "name": "equalTo",
+                "value": "",
+                "type": "query",
+                "description": "Return items equal to the specified value"
+              },
+              {
+                "name": "shallow",
+                "value": "",
+                "type": "query",
+                "description": "Return only the keys at the location (no nested data)"
+              }
+            ]
+          },
+          "docs": "Reads data at the specified database path. Returns the JSON data stored at the given location in the database tree."
+        },
+        {
+          "info": {
+            "name": "Google Firebase Push data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{projectId}-default-rtdb.firebaseio.com/:path.json",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The database path to the data node"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Pushes data to the specified path with an auto-generated unique key. Equivalent to using push() in the Firebase SDK."
+        },
+        {
+          "info": {
+            "name": "Google Firebase Write data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{projectId}-default-rtdb.firebaseio.com/:path.json",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The database path to the data node"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Writes data to the specified database path, replacing any existing data at that location."
+        },
+        {
+          "info": {
+            "name": "Google Firebase Update data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{projectId}-default-rtdb.firebaseio.com/:path.json",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The database path to the data node"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates specific children at the specified path without overwriting the entire node. This performs a multi-path update."
+        },
+        {
+          "info": {
+            "name": "Google Firebase Delete data",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{projectId}-default-rtdb.firebaseio.com/:path.json",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The database path to the data node"
+              }
+            ]
+          },
+          "docs": "Removes data at the specified database path."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -105,6 +105,8 @@ apis:
       - type: Documentation
         url: https://firebase.google.com/docs/reference/remote-config/rest
 common:
+  - type: OAuthScopes
+    url: scopes/google-firebase-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/firebase
   - type: LinkedIn
@@ -127,6 +129,8 @@ common:
     url: json-ld/google-firebase-context.jsonld
   - type: Integrations
     url: https://firebase.google.com/integrations
+  - url: https://firebase.blog/rss.xml
+    type: Blog
 integrations:
   - name: Firebase
   - name: Flutter

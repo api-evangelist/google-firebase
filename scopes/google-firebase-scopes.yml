@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/firebase-cloud-messaging-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/firebase-cloud-messaging-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.google.com/o/oauth2/auth
+    tokenUrl: https://oauth2.googleapis.com/token
+scopes:
+- scope: https://www.googleapis.com/auth/firebase.messaging
+  description: Send FCM messages
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/firebase-cloud-messaging-openapi.yml

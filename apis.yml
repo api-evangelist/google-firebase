@@ -105,6 +105,12 @@ apis:
       - type: Documentation
         url: https://firebase.google.com/docs/reference/remote-config/rest
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-firebase-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-firebase-domain-security.yml
+  - type: Authentication
+    url: authentication/google-firebase-authentication.yml
   - type: OAuthScopes
     url: scopes/google-firebase-scopes.yml
   - type: GitHubOrganization

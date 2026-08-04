@@ -1,0 +1,406 @@
+{
+  "info": {
+    "_postman_id": "d84d8545-4534-4ff0-a2fc-6b982abd8d2f",
+    "name": "Google Firebase Firebase Cloud Messaging API (FCM) Data Messages API",
+    "description": "The Firebase Cloud Messaging HTTP v1 API enables sending notification and data messages to client apps on Android, iOS, and the web. It supports per-platform message customization, topic messaging, and condition-based targeting.\n\nContact Support:\n Name: Google Firebase Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:49:10.000Z",
+    "updatedAt": "2026-07-28T01:49:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d84d8545-4534-4ff0-a2fc-6b982abd8d2f"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "messages:send",
+              "item": [
+                {
+                  "name": "Google Firebase Send a message",
+                  "id": "df6da968-5372-468a-bb1a-a800ba7435ef",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"message\": {\n    \"name\": \"<string>\",\n    \"token\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"condition\": \"<string>\",\n    \"notification\": {\n      \"title\": \"<string>\",\n      \"body\": \"<string>\",\n      \"image\": \"<string>\"\n    },\n    \"data\": {\n      \"nisi_6de\": \"<string>\",\n      \"minimef\": \"<string>\",\n      \"aliqua_6a\": \"<string>\",\n      \"animf\": \"<string>\"\n    },\n    \"android\": {\n      \"priority\": \"HIGH\",\n      \"ttl\": \"<string>\",\n      \"collapse_key\": \"<string>\",\n      \"notification\": {\n        \"title\": \"<string>\",\n        \"body\": \"<string>\",\n        \"icon\": \"<string>\",\n        \"color\": \"<string>\",\n        \"click_action\": \"<string>\",\n        \"channel_id\": \"<string>\"\n      }\n    },\n    \"webpush\": {\n      \"headers\": {\n        \"occaecat_9\": \"<string>\"\n      },\n      \"notification\": {\n        \"aute2\": -94659287\n      }\n    },\n    \"apns\": {\n      \"headers\": {\n        \"inbb8\": \"<string>\",\n        \"nisi_7\": \"<string>\",\n        \"utbc\": \"<string>\"\n      },\n      \"payload\": {\n        \"officia4b8\": -43766550.22553417,\n        \"aliquip2b2\": 42601184.3679395\n      }\n    }\n  },\n  \"validate_only\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:projectId/messages:send",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":projectId",
+                        "messages:send"
+                      ],
+                      "variable": [
+                        {
+                          "id": "82f5aa79-a549-4e16-8859-f57cc9e7b13f",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) The Firebase project ID"
+                        }
+                      ]
+                    },
+                    "description": "Sends a message to the specified target (device token, topic, or condition). Supports notification payloads, data payloads, and platform-specific overrides."
+                  },
+                  "response": [
+                    {
+                      "id": "f367d454-5d67-4eb0-9de6-7a524e826084",
+                      "name": "Message sent successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"message\": {\n    \"name\": \"<string>\",\n    \"token\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"condition\": \"<string>\",\n    \"notification\": {\n      \"title\": \"<string>\",\n      \"body\": \"<string>\",\n      \"image\": \"<string>\"\n    },\n    \"data\": {\n      \"nisi_6de\": \"<string>\",\n      \"minimef\": \"<string>\",\n      \"aliqua_6a\": \"<string>\",\n      \"animf\": \"<string>\"\n    },\n    \"android\": {\n      \"priority\": \"HIGH\",\n      \"ttl\": \"<string>\",\n      \"collapse_key\": \"<string>\",\n      \"notification\": {\n        \"title\": \"<string>\",\n        \"body\": \"<string>\",\n        \"icon\": \"<string>\",\n        \"color\": \"<string>\",\n        \"click_action\": \"<string>\",\n        \"channel_id\": \"<string>\"\n      }\n    },\n    \"webpush\": {\n      \"headers\": {\n        \"occaecat_9\": \"<string>\"\n      },\n      \"notification\": {\n        \"aute2\": -94659287\n      }\n    },\n    \"apns\": {\n      \"headers\": {\n        \"inbb8\": \"<string>\",\n        \"nisi_7\": \"<string>\",\n        \"utbc\": \"<string>\"\n      },\n      \"payload\": {\n        \"officia4b8\": -43766550.22553417,\n        \"aliquip2b2\": 42601184.3679395\n      }\n    }\n  },\n  \"validate_only\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/messages:send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "messages:send"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<string>\",\n  \"token\": \"<string>\",\n  \"topic\": \"<string>\",\n  \"condition\": \"<string>\",\n  \"notification\": {\n    \"title\": \"<string>\",\n    \"body\": \"<string>\",\n    \"image\": \"<string>\"\n  },\n  \"data\": {\n    \"eiusmodf3e\": \"<string>\"\n  },\n  \"android\": {\n    \"priority\": \"NORMAL\",\n    \"ttl\": \"<string>\",\n    \"collapse_key\": \"<string>\",\n    \"notification\": {\n      \"title\": \"<string>\",\n      \"body\": \"<string>\",\n      \"icon\": \"<string>\",\n      \"color\": \"<string>\",\n      \"click_action\": \"<string>\",\n      \"channel_id\": \"<string>\"\n    }\n  },\n  \"webpush\": {\n    \"headers\": {\n      \"id2\": \"<string>\"\n    },\n    \"notification\": {\n      \"tempor__\": -71567283,\n      \"cupidatat_a6\": true\n    }\n  },\n  \"apns\": {\n    \"headers\": {\n      \"ex_63\": \"<string>\",\n      \"eiusmod7_0\": \"<string>\"\n    },\n    \"payload\": {\n      \"cupidatat_b_\": -72169911,\n      \"est_76\": \"commodo Lorem aliqua\",\n      \"nostrud_5\": -66058223.56321775\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T01:49:10.000Z",
+                      "updatedAt": "2026-07-28T01:49:10.000Z",
+                      "uid": "35240-f367d454-5d67-4eb0-9de6-7a524e826084"
+                    },
+                    {
+                      "id": "f3d894ae-56bd-4d59-82a1-ab4451914fbd",
+                      "name": "Invalid request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"message\": {\n    \"name\": \"<string>\",\n    \"token\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"condition\": \"<string>\",\n    \"notification\": {\n      \"title\": \"<string>\",\n      \"body\": \"<string>\",\n      \"image\": \"<string>\"\n    },\n    \"data\": {\n      \"nisi_6de\": \"<string>\",\n      \"minimef\": \"<string>\",\n      \"aliqua_6a\": \"<string>\",\n      \"animf\": \"<string>\"\n    },\n    \"android\": {\n      \"priority\": \"HIGH\",\n      \"ttl\": \"<string>\",\n      \"collapse_key\": \"<string>\",\n      \"notification\": {\n        \"title\": \"<string>\",\n        \"body\": \"<string>\",\n        \"icon\": \"<string>\",\n        \"color\": \"<string>\",\n        \"click_action\": \"<string>\",\n        \"channel_id\": \"<string>\"\n      }\n    },\n    \"webpush\": {\n      \"headers\": {\n        \"occaecat_9\": \"<string>\"\n      },\n      \"notification\": {\n        \"aute2\": -94659287\n      }\n    },\n    \"apns\": {\n      \"headers\": {\n        \"inbb8\": \"<string>\",\n        \"nisi_7\": \"<string>\",\n        \"utbc\": \"<string>\"\n      },\n      \"payload\": {\n        \"officia4b8\": -43766550.22553417,\n        \"aliquip2b2\": 42601184.3679395\n      }\n    }\n  },\n  \"validate_only\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/messages:send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "messages:send"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:49:10.000Z",
+                      "updatedAt": "2026-07-28T01:49:10.000Z",
+                      "uid": "35240-f3d894ae-56bd-4d59-82a1-ab4451914fbd"
+                    },
+                    {
+                      "id": "c24b8bdf-2eff-48bd-a1cd-a062589800cc",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"message\": {\n    \"name\": \"<string>\",\n    \"token\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"condition\": \"<string>\",\n    \"notification\": {\n      \"title\": \"<string>\",\n      \"body\": \"<string>\",\n      \"image\": \"<string>\"\n    },\n    \"data\": {\n      \"nisi_6de\": \"<string>\",\n      \"minimef\": \"<string>\",\n      \"aliqua_6a\": \"<string>\",\n      \"animf\": \"<string>\"\n    },\n    \"android\": {\n      \"priority\": \"HIGH\",\n      \"ttl\": \"<string>\",\n      \"collapse_key\": \"<string>\",\n      \"notification\": {\n        \"title\": \"<string>\",\n        \"body\": \"<string>\",\n        \"icon\": \"<string>\",\n        \"color\": \"<string>\",\n        \"click_action\": \"<string>\",\n        \"channel_id\": \"<string>\"\n      }\n    },\n    \"webpush\": {\n      \"headers\": {\n        \"occaecat_9\": \"<string>\"\n      },\n      \"notification\": {\n        \"aute2\": -94659287\n      }\n    },\n    \"apns\": {\n      \"headers\": {\n        \"inbb8\": \"<string>\",\n        \"nisi_7\": \"<string>\",\n        \"utbc\": \"<string>\"\n      },\n      \"payload\": {\n        \"officia4b8\": -43766550.22553417,\n        \"aliquip2b2\": 42601184.3679395\n      }\n    }\n  },\n  \"validate_only\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/messages:send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "messages:send"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:49:10.000Z",
+                      "updatedAt": "2026-07-28T01:49:10.000Z",
+                      "uid": "35240-c24b8bdf-2eff-48bd-a1cd-a062589800cc"
+                    },
+                    {
+                      "id": "a8b04292-80d4-41d5-acfb-2e4c1705e90b",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"message\": {\n    \"name\": \"<string>\",\n    \"token\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"condition\": \"<string>\",\n    \"notification\": {\n      \"title\": \"<string>\",\n      \"body\": \"<string>\",\n      \"image\": \"<string>\"\n    },\n    \"data\": {\n      \"nisi_6de\": \"<string>\",\n      \"minimef\": \"<string>\",\n      \"aliqua_6a\": \"<string>\",\n      \"animf\": \"<string>\"\n    },\n    \"android\": {\n      \"priority\": \"HIGH\",\n      \"ttl\": \"<string>\",\n      \"collapse_key\": \"<string>\",\n      \"notification\": {\n        \"title\": \"<string>\",\n        \"body\": \"<string>\",\n        \"icon\": \"<string>\",\n        \"color\": \"<string>\",\n        \"click_action\": \"<string>\",\n        \"channel_id\": \"<string>\"\n      }\n    },\n    \"webpush\": {\n      \"headers\": {\n        \"occaecat_9\": \"<string>\"\n      },\n      \"notification\": {\n        \"aute2\": -94659287\n      }\n    },\n    \"apns\": {\n      \"headers\": {\n        \"inbb8\": \"<string>\",\n        \"nisi_7\": \"<string>\",\n        \"utbc\": \"<string>\"\n      },\n      \"payload\": {\n        \"officia4b8\": -43766550.22553417,\n        \"aliquip2b2\": 42601184.3679395\n      }\n    }\n  },\n  \"validate_only\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/messages:send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "messages:send"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:49:10.000Z",
+                      "updatedAt": "2026-07-28T01:49:10.000Z",
+                      "uid": "35240-a8b04292-80d4-41d5-acfb-2e4c1705e90b"
+                    },
+                    {
+                      "id": "c3c98371-c73e-45aa-8c14-8903a85148fc",
+                      "name": "Too many requests",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"message\": {\n    \"name\": \"<string>\",\n    \"token\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"condition\": \"<string>\",\n    \"notification\": {\n      \"title\": \"<string>\",\n      \"body\": \"<string>\",\n      \"image\": \"<string>\"\n    },\n    \"data\": {\n      \"nisi_6de\": \"<string>\",\n      \"minimef\": \"<string>\",\n      \"aliqua_6a\": \"<string>\",\n      \"animf\": \"<string>\"\n    },\n    \"android\": {\n      \"priority\": \"HIGH\",\n      \"ttl\": \"<string>\",\n      \"collapse_key\": \"<string>\",\n      \"notification\": {\n        \"title\": \"<string>\",\n        \"body\": \"<string>\",\n        \"icon\": \"<string>\",\n        \"color\": \"<string>\",\n        \"click_action\": \"<string>\",\n        \"channel_id\": \"<string>\"\n      }\n    },\n    \"webpush\": {\n      \"headers\": {\n        \"occaecat_9\": \"<string>\"\n      },\n      \"notification\": {\n        \"aute2\": -94659287\n      }\n    },\n    \"apns\": {\n      \"headers\": {\n        \"inbb8\": \"<string>\",\n        \"nisi_7\": \"<string>\",\n        \"utbc\": \"<string>\"\n      },\n      \"payload\": {\n        \"officia4b8\": -43766550.22553417,\n        \"aliquip2b2\": 42601184.3679395\n      }\n    }\n  },\n  \"validate_only\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/messages:send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "messages:send"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:49:10.000Z",
+                      "updatedAt": "2026-07-28T01:49:10.000Z",
+                      "uid": "35240-c3c98371-c73e-45aa-8c14-8903a85148fc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:49:10.000Z",
+                  "updatedAt": "2026-07-28T01:49:10.000Z",
+                  "uid": "35240-df6da968-5372-468a-bb1a-a800ba7435ef"
+                }
+              ],
+              "id": "590dae09-b217-4ce3-bcb2-a8c8e2eeca76",
+              "createdAt": "2026-07-28T01:49:10.000Z",
+              "updatedAt": "2026-07-28T01:49:10.000Z",
+              "uid": "35240-590dae09-b217-4ce3-bcb2-a8c8e2eeca76"
+            }
+          ],
+          "id": "9a03c55f-4f2d-43eb-968c-f32f78068a7b",
+          "createdAt": "2026-07-28T01:49:10.000Z",
+          "updatedAt": "2026-07-28T01:49:10.000Z",
+          "uid": "35240-9a03c55f-4f2d-43eb-968c-f32f78068a7b"
+        }
+      ],
+      "id": "215bd937-4558-4fbe-9a55-43298cb8cd7b",
+      "createdAt": "2026-07-28T01:49:10.000Z",
+      "updatedAt": "2026-07-28T01:49:10.000Z",
+      "uid": "35240-215bd937-4558-4fbe-9a55-43298cb8cd7b"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/firebase.messaging",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://fcm.googleapis.com/v1"
+    }
+  ]
+}

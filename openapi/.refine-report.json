@@ -1,0 +1,16 @@
+{
+  "provider": "google-firebase",
+  "sources": [
+    "google-firebase-data-api-openapi.yml",
+    "google-firebase-messages-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-firebase-data-api-openapi.yml",
+    "google-firebase-messages-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

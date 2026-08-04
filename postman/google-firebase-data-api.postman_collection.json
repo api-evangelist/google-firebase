@@ -1,0 +1,901 @@
+{
+  "info": {
+    "_postman_id": "5aa77d33-bd00-4a3f-a1dd-ed5b351de745",
+    "name": "Google Firebase Firebase Cloud Messaging API (FCM) Data API",
+    "description": "The Firebase Cloud Messaging HTTP v1 API enables sending notification and data messages to client apps on Android, iOS, and the web. It supports per-platform message customization, topic messaging, and condition-based targeting.\n\nContact Support:\n Name: Google Firebase Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:49:07.000Z",
+    "updatedAt": "2026-07-28T01:49:08.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5aa77d33-bd00-4a3f-a1dd-ed5b351de745"
+  },
+  "item": [
+    {
+      "name": "{path}.json",
+      "item": [
+        {
+          "name": "Google Firebase Read data",
+          "id": "14dd275a-edbd-4b4d-9258-7fd5336dbed1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{path}}.json?auth=<string>&orderBy=<string>&limitToFirst=<integer>&limitToLast=<integer>&startAt=<string>&endAt=<string>&equalTo=<string>&shallow=<boolean>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{path}}.json"
+              ],
+              "query": [
+                {
+                  "description": "Firebase ID token or database secret for authentication",
+                  "key": "auth",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The child key or priority to order results by",
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Limit the number of results returned from the beginning",
+                  "key": "limitToFirst",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Limit the number of results returned from the end",
+                  "key": "limitToLast",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Return items starting at the specified value",
+                  "key": "startAt",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Return items ending at the specified value",
+                  "key": "endAt",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Return items equal to the specified value",
+                  "key": "equalTo",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Return only the keys at the location (no nested data)",
+                  "key": "shallow",
+                  "value": "<boolean>"
+                }
+              ]
+            },
+            "description": "Reads data at the specified database path. Returns the JSON data stored at the given location in the database tree."
+          },
+          "response": [
+            {
+              "id": "8b72ba9b-5d0b-443d-8aaa-beb15d957dd4",
+              "name": "Successful response with data at the path",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/{{path}}.json?auth=<string>&orderBy=<string>&limitToFirst=<integer>&limitToLast=<integer>&startAt=<string>&endAt=<string>&equalTo=<string>&shallow=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{path}}.json"
+                  ],
+                  "query": [
+                    {
+                      "description": "Firebase ID token or database secret for authentication",
+                      "key": "auth",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The child key or priority to order results by",
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of results returned from the beginning",
+                      "key": "limitToFirst",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Limit the number of results returned from the end",
+                      "key": "limitToLast",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Return items starting at the specified value",
+                      "key": "startAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return items ending at the specified value",
+                      "key": "endAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return items equal to the specified value",
+                      "key": "equalTo",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return only the keys at the location (no nested data)",
+                      "key": "shallow",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<string>",
+              "createdAt": "2026-07-28T01:49:08.000Z",
+              "updatedAt": "2026-07-28T01:49:08.000Z",
+              "uid": "35240-8b72ba9b-5d0b-443d-8aaa-beb15d957dd4"
+            },
+            {
+              "id": "f5141bcc-ffe5-429b-93c9-b10547225484",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/{{path}}.json?auth=<string>&orderBy=<string>&limitToFirst=<integer>&limitToLast=<integer>&startAt=<string>&endAt=<string>&equalTo=<string>&shallow=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{path}}.json"
+                  ],
+                  "query": [
+                    {
+                      "description": "Firebase ID token or database secret for authentication",
+                      "key": "auth",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The child key or priority to order results by",
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of results returned from the beginning",
+                      "key": "limitToFirst",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Limit the number of results returned from the end",
+                      "key": "limitToLast",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Return items starting at the specified value",
+                      "key": "startAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return items ending at the specified value",
+                      "key": "endAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return items equal to the specified value",
+                      "key": "equalTo",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return only the keys at the location (no nested data)",
+                      "key": "shallow",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:49:08.000Z",
+              "updatedAt": "2026-07-28T01:49:08.000Z",
+              "uid": "35240-f5141bcc-ffe5-429b-93c9-b10547225484"
+            },
+            {
+              "id": "46ff54b7-f6d9-46ba-8186-e69daabe10c5",
+              "name": "Path not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/{{path}}.json?auth=<string>&orderBy=<string>&limitToFirst=<integer>&limitToLast=<integer>&startAt=<string>&endAt=<string>&equalTo=<string>&shallow=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{path}}.json"
+                  ],
+                  "query": [
+                    {
+                      "description": "Firebase ID token or database secret for authentication",
+                      "key": "auth",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The child key or priority to order results by",
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of results returned from the beginning",
+                      "key": "limitToFirst",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Limit the number of results returned from the end",
+                      "key": "limitToLast",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Return items starting at the specified value",
+                      "key": "startAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return items ending at the specified value",
+                      "key": "endAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return items equal to the specified value",
+                      "key": "equalTo",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return only the keys at the location (no nested data)",
+                      "key": "shallow",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:49:08.000Z",
+              "updatedAt": "2026-07-28T01:49:08.000Z",
+              "uid": "35240-46ff54b7-f6d9-46ba-8186-e69daabe10c5"
+            }
+          ],
+          "createdAt": "2026-07-28T01:49:08.000Z",
+          "updatedAt": "2026-07-28T01:49:08.000Z",
+          "uid": "35240-14dd275a-edbd-4b4d-9258-7fd5336dbed1"
+        },
+        {
+          "name": "Google Firebase Write data",
+          "id": "c5d9c556-03dc-4146-bbe5-0e2413451049",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<string>",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{path}}.json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{path}}.json"
+              ]
+            },
+            "description": "Writes data to the specified database path, replacing any existing data at that location."
+          },
+          "response": [
+            {
+              "id": "0fc1919a-4686-4232-b0fb-488acb5a75c6",
+              "name": "Data written successfully",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{path}}.json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{path}}.json"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<string>",
+              "createdAt": "2026-07-28T01:49:08.000Z",
+              "updatedAt": "2026-07-28T01:49:08.000Z",
+              "uid": "35240-0fc1919a-4686-4232-b0fb-488acb5a75c6"
+            },
+            {
+              "id": "fba9eb65-6718-4591-a12f-a497883cb0dc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{path}}.json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{path}}.json"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:49:08.000Z",
+              "updatedAt": "2026-07-28T01:49:08.000Z",
+              "uid": "35240-fba9eb65-6718-4591-a12f-a497883cb0dc"
+            }
+          ],
+          "createdAt": "2026-07-28T01:49:08.000Z",
+          "updatedAt": "2026-07-28T01:49:08.000Z",
+          "uid": "35240-c5d9c556-03dc-4146-bbe5-0e2413451049"
+        },
+        {
+          "name": "Google Firebase Update data",
+          "id": "0a1e8b95-a679-4895-a648-fd75b363fbe7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nulla65\": -21971687,\n  \"in_8fc\": \"adipisicing\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{path}}.json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{path}}.json"
+              ]
+            },
+            "description": "Updates specific children at the specified path without overwriting the entire node. This performs a multi-path update."
+          },
+          "response": [
+            {
+              "id": "03401f69-713a-430a-863a-d9958fd53bcc",
+              "name": "Data updated successfully",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nulla65\": -21971687,\n  \"in_8fc\": \"adipisicing\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{path}}.json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{path}}.json"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"nulla65\": -21971687,\n  \"in_8fc\": \"adipisicing\"\n}",
+              "createdAt": "2026-07-28T01:49:08.000Z",
+              "updatedAt": "2026-07-28T01:49:08.000Z",
+              "uid": "35240-03401f69-713a-430a-863a-d9958fd53bcc"
+            },
+            {
+              "id": "ac0c5f78-3517-42d2-a9fe-fee3ccd13cb5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nulla65\": -21971687,\n  \"in_8fc\": \"adipisicing\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{path}}.json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{path}}.json"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:49:08.000Z",
+              "updatedAt": "2026-07-28T01:49:08.000Z",
+              "uid": "35240-ac0c5f78-3517-42d2-a9fe-fee3ccd13cb5"
+            }
+          ],
+          "createdAt": "2026-07-28T01:49:08.000Z",
+          "updatedAt": "2026-07-28T01:49:08.000Z",
+          "uid": "35240-0a1e8b95-a679-4895-a648-fd75b363fbe7"
+        },
+        {
+          "name": "Google Firebase Push data",
+          "id": "b41b4f73-da6d-4657-9a97-12b489eddadf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<string>",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{path}}.json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{path}}.json"
+              ]
+            },
+            "description": "Pushes data to the specified path with an auto-generated unique key. Equivalent to using push() in the Firebase SDK."
+          },
+          "response": [
+            {
+              "id": "f9e59248-8e04-4b15-a295-b923ab14d4fe",
+              "name": "Data pushed successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{path}}.json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{path}}.json"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:49:08.000Z",
+              "updatedAt": "2026-07-28T01:49:08.000Z",
+              "uid": "35240-f9e59248-8e04-4b15-a295-b923ab14d4fe"
+            },
+            {
+              "id": "2a39f9c4-2846-46ad-a3b7-e35ee33d39d3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{path}}.json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{path}}.json"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:49:08.000Z",
+              "updatedAt": "2026-07-28T01:49:08.000Z",
+              "uid": "35240-2a39f9c4-2846-46ad-a3b7-e35ee33d39d3"
+            }
+          ],
+          "createdAt": "2026-07-28T01:49:08.000Z",
+          "updatedAt": "2026-07-28T01:49:08.000Z",
+          "uid": "35240-b41b4f73-da6d-4657-9a97-12b489eddadf"
+        },
+        {
+          "name": "Google Firebase Delete data",
+          "id": "def50532-be70-45d4-9dad-45f7ae278772",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{path}}.json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{path}}.json"
+              ]
+            },
+            "description": "Removes data at the specified database path."
+          },
+          "response": [
+            {
+              "id": "ffe20be8-13aa-4d69-84c6-9a153144df7a",
+              "name": "Data deleted successfully",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/{{path}}.json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{path}}.json"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:49:08.000Z",
+              "updatedAt": "2026-07-28T01:49:08.000Z",
+              "uid": "35240-ffe20be8-13aa-4d69-84c6-9a153144df7a"
+            },
+            {
+              "id": "6fa08e5c-82b3-4f2d-8463-bbd75c0151b1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/{{path}}.json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{path}}.json"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:49:08.000Z",
+              "updatedAt": "2026-07-28T01:49:08.000Z",
+              "uid": "35240-6fa08e5c-82b3-4f2d-8463-bbd75c0151b1"
+            }
+          ],
+          "createdAt": "2026-07-28T01:49:08.000Z",
+          "updatedAt": "2026-07-28T01:49:08.000Z",
+          "uid": "35240-def50532-be70-45d4-9dad-45f7ae278772"
+        }
+      ],
+      "id": "e5ec4dda-b9c3-4e02-b5dc-29c8de2cdc77",
+      "createdAt": "2026-07-28T01:49:08.000Z",
+      "updatedAt": "2026-07-28T01:49:08.000Z",
+      "uid": "35240-e5ec4dda-b9c3-4e02-b5dc-29c8de2cdc77"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/firebase.messaging",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://fcm.googleapis.com/v1"
+    },
+    {
+      "key": "path",
+      "value": "<string>"
+    }
+  ]
+}

@@ -1,0 +1,400 @@
+{
+  "item": [
+    {
+      "id": "35e234af-79bb-4552-bf09-5cb152fd077d",
+      "name": "Messages",
+      "description": {
+        "content": "Send messages to devices and topics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "95a276b7-ad5a-4670-a477-bceef94df3ba",
+          "name": "Google Firebase Send a message",
+          "request": {
+            "name": "Google Firebase Send a message",
+            "description": {
+              "content": "Sends a message to the specified target (device token, topic, or condition). Supports notification payloads, data payloads, and platform-specific overrides.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "messages:send"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) The Firebase project ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": {\n    \"token\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"condition\": \"<string>\",\n    \"notification\": {\n      \"title\": \"<string>\",\n      \"body\": \"<string>\",\n      \"image\": \"<string>\"\n    },\n    \"data\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"android\": {\n      \"priority\": \"<string>\",\n      \"ttl\": \"<string>\",\n      \"collapse_key\": \"<string>\",\n      \"notification\": {\n        \"title\": \"<string>\",\n        \"body\": \"<string>\",\n        \"icon\": \"<string>\",\n        \"color\": \"<string>\",\n        \"click_action\": \"<string>\",\n        \"channel_id\": \"<string>\"\n      }\n    },\n    \"webpush\": {\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"notification\": {\n        \"key_0\": 8607\n      }\n    },\n    \"apns\": {\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"payload\": {\n        \"key_0\": 7666.173177702588,\n        \"key_1\": \"string\"\n      }\n    }\n  },\n  \"validate_only\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "995d07dd-a6e0-46cc-8575-7221a577f46d",
+              "name": "Message sent successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "messages:send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The Firebase project ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"token\": \"string\",\n    \"topic\": \"string\",\n    \"condition\": \"string\",\n    \"notification\": {\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"image\": \"string\"\n    },\n    \"data\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"android\": {\n      \"priority\": \"HIGH\",\n      \"ttl\": \"string\",\n      \"collapse_key\": \"string\",\n      \"notification\": {\n        \"title\": \"string\",\n        \"body\": \"string\",\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"click_action\": \"string\",\n        \"channel_id\": \"string\"\n      }\n    },\n    \"webpush\": {\n      \"headers\": {\n        \"key_0\": \"string\"\n      },\n      \"notification\": {\n        \"key_0\": \"string\",\n        \"key_1\": 744\n      }\n    },\n    \"apns\": {\n      \"headers\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"payload\": {\n        \"key_0\": 7875.366276611641\n      }\n    }\n  },\n  \"validate_only\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"token\": \"string\",\n  \"topic\": \"string\",\n  \"condition\": \"string\",\n  \"notification\": {\n    \"title\": \"string\",\n    \"body\": \"string\",\n    \"image\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": \"string\"\n  },\n  \"android\": {\n    \"priority\": \"NORMAL\",\n    \"ttl\": \"string\",\n    \"collapse_key\": \"string\",\n    \"notification\": {\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"icon\": \"string\",\n      \"color\": \"string\",\n      \"click_action\": \"string\",\n      \"channel_id\": \"string\"\n    }\n  },\n  \"webpush\": {\n    \"headers\": {\n      \"key_0\": \"string\"\n    },\n    \"notification\": {\n      \"key_0\": true,\n      \"key_1\": \"string\"\n    }\n  },\n  \"apns\": {\n    \"headers\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"payload\": {\n      \"key_0\": 8736,\n      \"key_1\": false,\n      \"key_2\": 1973\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f403cc20-1f44-45fd-ab20-35be8ea0c541",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "messages:send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The Firebase project ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"token\": \"string\",\n    \"topic\": \"string\",\n    \"condition\": \"string\",\n    \"notification\": {\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"image\": \"string\"\n    },\n    \"data\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"android\": {\n      \"priority\": \"HIGH\",\n      \"ttl\": \"string\",\n      \"collapse_key\": \"string\",\n      \"notification\": {\n        \"title\": \"string\",\n        \"body\": \"string\",\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"click_action\": \"string\",\n        \"channel_id\": \"string\"\n      }\n    },\n    \"webpush\": {\n      \"headers\": {\n        \"key_0\": \"string\"\n      },\n      \"notification\": {\n        \"key_0\": \"string\",\n        \"key_1\": 744\n      }\n    },\n    \"apns\": {\n      \"headers\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"payload\": {\n        \"key_0\": 7875.366276611641\n      }\n    }\n  },\n  \"validate_only\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "62b1b534-1090-4de7-9954-60a62c85592a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "messages:send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The Firebase project ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"token\": \"string\",\n    \"topic\": \"string\",\n    \"condition\": \"string\",\n    \"notification\": {\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"image\": \"string\"\n    },\n    \"data\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"android\": {\n      \"priority\": \"HIGH\",\n      \"ttl\": \"string\",\n      \"collapse_key\": \"string\",\n      \"notification\": {\n        \"title\": \"string\",\n        \"body\": \"string\",\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"click_action\": \"string\",\n        \"channel_id\": \"string\"\n      }\n    },\n    \"webpush\": {\n      \"headers\": {\n        \"key_0\": \"string\"\n      },\n      \"notification\": {\n        \"key_0\": \"string\",\n        \"key_1\": 744\n      }\n    },\n    \"apns\": {\n      \"headers\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"payload\": {\n        \"key_0\": 7875.366276611641\n      }\n    }\n  },\n  \"validate_only\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "55c63049-d94f-41ec-b6be-d57edd815440",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "messages:send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The Firebase project ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"token\": \"string\",\n    \"topic\": \"string\",\n    \"condition\": \"string\",\n    \"notification\": {\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"image\": \"string\"\n    },\n    \"data\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"android\": {\n      \"priority\": \"HIGH\",\n      \"ttl\": \"string\",\n      \"collapse_key\": \"string\",\n      \"notification\": {\n        \"title\": \"string\",\n        \"body\": \"string\",\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"click_action\": \"string\",\n        \"channel_id\": \"string\"\n      }\n    },\n    \"webpush\": {\n      \"headers\": {\n        \"key_0\": \"string\"\n      },\n      \"notification\": {\n        \"key_0\": \"string\",\n        \"key_1\": 744\n      }\n    },\n    \"apns\": {\n      \"headers\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"payload\": {\n        \"key_0\": 7875.366276611641\n      }\n    }\n  },\n  \"validate_only\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2842a0bf-0423-4d54-b89e-d73cce05e5fc",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "messages:send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The Firebase project ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"token\": \"string\",\n    \"topic\": \"string\",\n    \"condition\": \"string\",\n    \"notification\": {\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"image\": \"string\"\n    },\n    \"data\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"android\": {\n      \"priority\": \"HIGH\",\n      \"ttl\": \"string\",\n      \"collapse_key\": \"string\",\n      \"notification\": {\n        \"title\": \"string\",\n        \"body\": \"string\",\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"click_action\": \"string\",\n        \"channel_id\": \"string\"\n      }\n    },\n    \"webpush\": {\n      \"headers\": {\n        \"key_0\": \"string\"\n      },\n      \"notification\": {\n        \"key_0\": \"string\",\n        \"key_1\": 744\n      }\n    },\n    \"apns\": {\n      \"headers\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"payload\": {\n        \"key_0\": 7875.366276611641\n      }\n    }\n  },\n  \"validate_only\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://fcm.googleapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/firebase.messaging"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bc588cd7-26ea-41eb-a112-629cdc70dd87",
+    "name": "Google Firebase Firebase Cloud Messaging API (FCM) Data Messages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Firebase Cloud Messaging HTTP v1 API enables sending notification and data messages to client apps on Android, iOS, and the web. It supports per-platform message customization, topic messaging, and condition-based targeting.\n\nContact Support:\n Name: Google Firebase Support",
+      "type": "text/plain"
+    }
+  }
+}

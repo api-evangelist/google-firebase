@@ -24,6 +24,15 @@ specificationVersion: '0.23'
 tags:
   - Analytics
   - Authentication
+  - Backend-as-a-Service
+  - Cloud Messaging
+  - Google Cloud
+  - Hosting
+  - Mobile
+  - Real-Time Database
+tags_raw:
+  - Analytics
+  - Authentication
   - Backend as a Service
   - Cloud Messaging
   - Google Cloud
@@ -41,6 +50,10 @@ apis:
   humanURL: https://firebase.google.com/docs/auth
   baseURL: https://identitytoolkit.googleapis.com
   tags:
+  - Authentication
+  - Identity
+  - User
+  tags_raw:
   - Authentication
   - Identity
   - Users
@@ -101,6 +114,8 @@ apis:
   humanURL: https://firebase.google.com/docs/database
   baseURL: https://firebaseio.com
   tags:
+  - Message
+  tags_raw:
   - Messages
   properties:
   - type: OpenAPI

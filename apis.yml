@@ -36,7 +36,7 @@ specificationVersion: '0.23'
 tags:
   - Analytics
   - Authentication
-  - Backend as a Service
+  - Backend-as-a-Service
   - Cloud Messaging
   - Google Cloud
   - Hosting

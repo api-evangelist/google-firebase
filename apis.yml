@@ -141,6 +141,8 @@ apis:
   - type: JSONSchema
     url: json-schema/google-firebase-fcm-message-schema.json
 common:
+  - type: Website
+    url: https://www.google.com/
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/google-firebase/overview
   - type: AgenticAccess
@@ -193,3 +195,5 @@ integrations:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-parent: google
+x-relationship: product

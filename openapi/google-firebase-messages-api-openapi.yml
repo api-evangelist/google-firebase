@@ -53,36 +53,6 @@ paths:
           description: Too many requests
 components:
   schemas:
-    SendMessageRequest:
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          $ref: '#/components/schemas/Message'
-        validate_only:
-          type: boolean
-          description: Flag for testing without actually sending the message
-    ApnsConfig:
-      type: object
-      properties:
-        headers:
-          type: object
-          additionalProperties:
-            type: string
-        payload:
-          type: object
-          additionalProperties: true
-    WebpushConfig:
-      type: object
-      properties:
-        headers:
-          type: object
-          additionalProperties:
-            type: string
-        notification:
-          type: object
-          additionalProperties: true
     AndroidConfig:
       type: object
       properties:
@@ -111,18 +81,26 @@ components:
               type: string
             channel_id:
               type: string
-    Notification:
+    ApnsConfig:
       type: object
       properties:
-        title:
-          type: string
-          description: The notification title
-        body:
-          type: string
-          description: The notification body text
-        image:
-          type: string
-          description: URL of an image to display in the notification
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+        payload:
+          type: object
+          additionalProperties: true
+    WebpushConfig:
+      type: object
+      properties:
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+        notification:
+          type: object
+          additionalProperties: true
     Message:
       type: object
       description: A message to send via FCM
@@ -153,6 +131,28 @@ components:
           $ref: '#/components/schemas/WebpushConfig'
         apns:
           $ref: '#/components/schemas/ApnsConfig'
+    Notification:
+      type: object
+      properties:
+        title:
+          type: string
+          description: The notification title
+        body:
+          type: string
+          description: The notification body text
+        image:
+          type: string
+          description: URL of an image to display in the notification
+    SendMessageRequest:
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          $ref: '#/components/schemas/Message'
+        validate_only:
+          type: boolean
+          description: Flag for testing without actually sending the message
   securitySchemes:
     oauth2:
       type: oauth2

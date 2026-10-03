@@ -81,16 +81,18 @@ components:
               type: string
             channel_id:
               type: string
-    ApnsConfig:
+    Notification:
       type: object
       properties:
-        headers:
-          type: object
-          additionalProperties:
-            type: string
-        payload:
-          type: object
-          additionalProperties: true
+        title:
+          type: string
+          description: The notification title
+        body:
+          type: string
+          description: The notification body text
+        image:
+          type: string
+          description: URL of an image to display in the notification
     WebpushConfig:
       type: object
       properties:
@@ -131,18 +133,16 @@ components:
           $ref: '#/components/schemas/WebpushConfig'
         apns:
           $ref: '#/components/schemas/ApnsConfig'
-    Notification:
+    ApnsConfig:
       type: object
       properties:
-        title:
-          type: string
-          description: The notification title
-        body:
-          type: string
-          description: The notification body text
-        image:
-          type: string
-          description: URL of an image to display in the notification
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+        payload:
+          type: object
+          additionalProperties: true
     SendMessageRequest:
       type: object
       required:

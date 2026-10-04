@@ -53,54 +53,14 @@ paths:
           description: Too many requests
 components:
   schemas:
-    AndroidConfig:
-      type: object
-      properties:
-        priority:
-          type: string
-          enum:
-          - NORMAL
-          - HIGH
-        ttl:
-          type: string
-          description: Message time-to-live duration (e.g. 3600s)
-        collapse_key:
-          type: string
-        notification:
-          type: object
-          properties:
-            title:
-              type: string
-            body:
-              type: string
-            icon:
-              type: string
-            color:
-              type: string
-            click_action:
-              type: string
-            channel_id:
-              type: string
-    Notification:
-      type: object
-      properties:
-        title:
-          type: string
-          description: The notification title
-        body:
-          type: string
-          description: The notification body text
-        image:
-          type: string
-          description: URL of an image to display in the notification
-    WebpushConfig:
+    ApnsConfig:
       type: object
       properties:
         headers:
           type: object
           additionalProperties:
             type: string
-        notification:
+        payload:
           type: object
           additionalProperties: true
     Message:
@@ -133,16 +93,34 @@ components:
           $ref: '#/components/schemas/WebpushConfig'
         apns:
           $ref: '#/components/schemas/ApnsConfig'
-    ApnsConfig:
+    AndroidConfig:
       type: object
       properties:
-        headers:
+        priority:
+          type: string
+          enum:
+          - NORMAL
+          - HIGH
+        ttl:
+          type: string
+          description: Message time-to-live duration (e.g. 3600s)
+        collapse_key:
+          type: string
+        notification:
           type: object
-          additionalProperties:
-            type: string
-        payload:
-          type: object
-          additionalProperties: true
+          properties:
+            title:
+              type: string
+            body:
+              type: string
+            icon:
+              type: string
+            color:
+              type: string
+            click_action:
+              type: string
+            channel_id:
+              type: string
     SendMessageRequest:
       type: object
       required:
@@ -153,6 +131,28 @@ components:
         validate_only:
           type: boolean
           description: Flag for testing without actually sending the message
+    Notification:
+      type: object
+      properties:
+        title:
+          type: string
+          description: The notification title
+        body:
+          type: string
+          description: The notification body text
+        image:
+          type: string
+          description: URL of an image to display in the notification
+    WebpushConfig:
+      type: object
+      properties:
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+        notification:
+          type: object
+          additionalProperties: true
   securitySchemes:
     oauth2:
       type: oauth2

@@ -167,6 +167,14 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    path:
+      name: path
+      in: path
+      required: true
+      description: The database path to the data node
+      schema:
+        type: string
   schemas:
     DatabaseNode:
       description: A node in the Firebase Realtime Database. Can be a primitive value, an object, or an array represented as JSON.
@@ -179,14 +187,6 @@ components:
       - type: array
         items: {}
       - type: 'null'
-  parameters:
-    path:
-      name: path
-      in: path
-      required: true
-      description: The database path to the data node
-      schema:
-        type: string
 externalDocs:
   description: Firebase Realtime Database REST Reference
   url: https://firebase.google.com/docs/reference/rest/database

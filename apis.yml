@@ -139,6 +139,12 @@ apis:
   - type: JSONSchema
     url: json-schema/google-firebase-fcm-message-schema.json
 common:
+- type: Plans
+  url: plans/google-firebase-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/google-firebase-rate-limits.yml
+- type: FinOps
+  url: finops/google-firebase-finops.yml
 - type: Website
   url: https://www.google.com/
 - type: PostmanWorkspace

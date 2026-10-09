@@ -378,3 +378,41 @@ plans:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - metered
+  units:
+  - data
+  - negotiated
+  - object
+  - seat
+  plans:
+  - name: Spark
+    access: freemium
+    model: free
+    model_how: derived
+    units:
+    - data
+    - object
+    - other
+    - seat
+    periods:
+    - day
+    - month
+    - per-use
+  - name: Blaze (Pay-As-You-Go)
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - data
+    - negotiated
+    - object
+    - other
+    periods:
+    - day
+    - month
+    - per-use

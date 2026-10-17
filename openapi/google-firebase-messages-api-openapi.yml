@@ -53,6 +53,56 @@ paths:
           description: Too many requests
 components:
   schemas:
+    SendMessageRequest:
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          $ref: '#/components/schemas/Message'
+        validate_only:
+          type: boolean
+          description: Flag for testing without actually sending the message
+    Notification:
+      type: object
+      properties:
+        title:
+          type: string
+          description: The notification title
+        body:
+          type: string
+          description: The notification body text
+        image:
+          type: string
+          description: URL of an image to display in the notification
+    AndroidConfig:
+      type: object
+      properties:
+        priority:
+          type: string
+          enum:
+          - NORMAL
+          - HIGH
+        ttl:
+          type: string
+          description: Message time-to-live duration (e.g. 3600s)
+        collapse_key:
+          type: string
+        notification:
+          type: object
+          properties:
+            title:
+              type: string
+            body:
+              type: string
+            icon:
+              type: string
+            color:
+              type: string
+            click_action:
+              type: string
+            channel_id:
+              type: string
     ApnsConfig:
       type: object
       properties:
@@ -93,56 +143,6 @@ components:
           $ref: '#/components/schemas/WebpushConfig'
         apns:
           $ref: '#/components/schemas/ApnsConfig'
-    AndroidConfig:
-      type: object
-      properties:
-        priority:
-          type: string
-          enum:
-          - NORMAL
-          - HIGH
-        ttl:
-          type: string
-          description: Message time-to-live duration (e.g. 3600s)
-        collapse_key:
-          type: string
-        notification:
-          type: object
-          properties:
-            title:
-              type: string
-            body:
-              type: string
-            icon:
-              type: string
-            color:
-              type: string
-            click_action:
-              type: string
-            channel_id:
-              type: string
-    SendMessageRequest:
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          $ref: '#/components/schemas/Message'
-        validate_only:
-          type: boolean
-          description: Flag for testing without actually sending the message
-    Notification:
-      type: object
-      properties:
-        title:
-          type: string
-          description: The notification title
-        body:
-          type: string
-          description: The notification body text
-        image:
-          type: string
-          description: URL of an image to display in the notification
     WebpushConfig:
       type: object
       properties:

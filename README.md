@@ -1,4 +1,4 @@
-# Google Firebase (google-firebase)
+# Google Firebase
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,147 +66,175 @@
 
 Google Firebase is a comprehensive app development platform that provides backend services, SDKs, and APIs for building and scaling mobile and web applications, including authentication, real-time databases, cloud messaging, hosting, and analytics.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/google-firebase/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/google-firebase/refs/heads/main/apis.yml)
+**Areas:** Analytics · Authentication · Backend-as-a-Service · Cloud Messaging · Google Cloud · Hosting · Mobile · Real-Time Database · Identity Federation
 
-## Tags
+## Google Firebase on APIs.io
 
-- Analytics
-- Authentication
-- Backend as a Service
-- Cloud Messaging
-- Google Cloud
-- Hosting
-- Mobile
-- Real-Time Database
+Everything profiled for Google Firebase is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/google-firebase/](https://apis.io/providers/google-firebase/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (5)
 
-- **Created:** 2026-03-13
-- **Modified:** 2026-05-19
+- [Firebase Authentication REST API](https://apis.io/apis/google-firebase/firebase-authentication-rest-api/) — The Firebase Authentication REST API enables developers to manage user authentication using email/password, phone, and federated identity providers such as…
+- [Firebase Hosting REST API](https://apis.io/apis/google-firebase/firebase-hosting-rest-api/) — The Firebase Hosting REST API allows developers to programmatically manage web hosting deployments on Firebase. It supports creating new releases, managing…
+- [Firebase Remote Config API](https://apis.io/apis/google-firebase/firebase-remote-config-api/) — The Firebase Remote Config API enables developers to change the behavior and appearance of their apps without requiring users to download an update. The API…
+- [Google Firebase Data API](https://apis.io/apis/google-firebase/google-firebase-data-api/) — Operations for reading and writing database nodes
+- [Google Firebase Messages API](https://apis.io/apis/google-firebase/google-firebase-messages-api/) — Send messages to devices and topics
 
-## APIs
+### Published properties
 
-### Firebase Realtime Database API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The Firebase Realtime Database API provides RESTful access to Firebase's cloud-hosted NoSQL database. It enables developers to store and sync data in real time across all connected clients using JSON. The API supports reading, writing, updating, and deleting data, along with server-sent events for real-time streaming and query filtering.
+#### Agentic access (1)
 
-- **Human URL:** [https://firebase.google.com/docs/database](https://firebase.google.com/docs/database)
-- **Base URL:** `https://firebaseio.com`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Google Firebase Agentic Access](https://apis.io/agentic-access/google-firebase/google-firebase-agentic-access/)
 
-- Database
-- JSON
-- NoSQL
-- Real-Time
+#### JSON Schema (9)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://firebase.google.com/docs/reference/rest/database)
-- [OpenAPI](openapi/firebase-realtime-database-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/firebase-realtime-database.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/firebase-realtime-database.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/google-firebase-database-node-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [AndroidConfig](https://apis.io/schemas/google-firebase/google-firebase-androidconfig/)
+- [ApnsConfig](https://apis.io/schemas/google-firebase/google-firebase-apnsconfig/)
+- [Firebase Realtime Database Node](https://apis.io/schemas/google-firebase/google-firebase-database-node/)
+- [DatabaseNode](https://apis.io/schemas/google-firebase/google-firebase-databasenode/)
+- [Firebase Cloud Messaging Message](https://apis.io/schemas/google-firebase/google-firebase-fcm-message/)
+- [Message](https://apis.io/schemas/google-firebase/google-firebase-message/)
+- [Notification](https://apis.io/schemas/google-firebase/google-firebase-notification/)
+- [SendMessageRequest](https://apis.io/schemas/google-firebase/google-firebase-sendmessagerequest/)
+- [WebpushConfig](https://apis.io/schemas/google-firebase/google-firebase-webpushconfig/)
 
-### Firebase Cloud Messaging API (FCM)
+#### JSON Structure (1)
 
-The Firebase Cloud Messaging API enables developers to send notifications and data messages to client apps on Android, iOS, and the web. The HTTP v1 API provides per-platform message customization, topic messaging, device group messaging, and delivery tracking. It uses OAuth 2.0 for authentication and supports both notification and data payloads.
+Data models expressed in JSON Structure.
 
-- **Human URL:** [https://firebase.google.com/docs/cloud-messaging](https://firebase.google.com/docs/cloud-messaging)
-- **Base URL:** `https://fcm.googleapis.com`
+- [Google Firebase Structure](https://apis.io/json-structure/google-firebase/google-firebase-structure/)
 
-#### Tags
+#### JSON-LD (1)
 
-- Messaging
-- Mobile
-- Push Notifications
+Linked-data contexts for the provider's vocabulary.
 
-#### Properties
+- [Google Firebase Context](https://apis.io/jsonld/google-firebase/google-firebase-context/)
 
-- [Documentation](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages)
-- [OpenAPI](openapi/firebase-cloud-messaging-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/firebase-cloud-messaging.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/firebase-cloud-messaging.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/google-firebase-fcm-message-schema.json) — [JSON Schema](https://json-schema.org/specification)
+#### Vocabulary (1)
 
-### Firebase Authentication REST API
+The provider's domain terms, defined.
 
-The Firebase Authentication REST API enables developers to manage user authentication using email/password, phone, and federated identity providers such as Google, Facebook, and Apple. The API supports creating and signing in users, verifying tokens, managing user accounts, sending verification emails, and password resets through the Identity Toolkit endpoints.
+- [Google Firebase Domain Vocabulary](https://apis.io/vocabularies/google-firebase/google-firebase-vocabulary/)
 
-- **Human URL:** [https://firebase.google.com/docs/auth](https://firebase.google.com/docs/auth)
-- **Base URL:** `https://identitytoolkit.googleapis.com`
+#### Collections (6)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Authentication
-- Identity
-- Users
+- [Google Firebase Firebase Cloud Messaging API (FCM)](https://apis.io/collections/google-firebase/open-firebase-cloud-messaging/)
+- [Google Firebase Firebase Realtime Database API](https://apis.io/collections/google-firebase/open-firebase-realtime-database/)
+- [Google Firebase Firebase Cloud Messaging API (FCM) Data API](https://apis.io/collections/google-firebase/open-google-firebase-data-api/)
+- [Google Firebase Firebase Cloud Messaging API (FCM) Data Messages API](https://apis.io/collections/google-firebase/open-google-firebase-messages-api/)
+- [Google Firebase Firebase Cloud Messaging API (FCM) Data API](https://apis.io/collections/google-firebase/postman-google-firebase-data-api/)
+- [Google Firebase Firebase Cloud Messaging API (FCM) Data Messages API](https://apis.io/collections/google-firebase/postman-google-firebase-messages-api/)
 
-#### Properties
+#### Governance rules (2)
 
-- [Documentation](https://firebase.google.com/docs/reference/rest/auth)
-- [Postman Collection](collections/firebase-cloud-messaging.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/firebase-cloud-messaging.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/firebase-realtime-database.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/firebase-realtime-database.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Spectral rulesets for the provider's contracts.
 
-### Firebase Hosting REST API
+- [Google Firebase — jsonschema rules](https://apis.io/rules/google-firebase/google-firebase-jsonschema-spectral-rules/)
+- [Google Firebase API Rules](https://apis.io/rules/google-firebase/google-firebase-spectral-rules/)
 
-The Firebase Hosting REST API allows developers to programmatically manage web hosting deployments on Firebase. It supports creating new releases, managing site versions, uploading files, configuring custom domains, and managing release channels for preview deployments.
+#### Security (3)
 
-- **Human URL:** [https://firebase.google.com/docs/hosting](https://firebase.google.com/docs/hosting)
-- **Base URL:** `https://firebasehosting.googleapis.com`
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Tags
+- [Google Firebase Authentication](https://apis.io/security/google-firebase/google-firebase-authentication/)
+- [Google Firebase Domain Security](https://apis.io/security/google-firebase/google-firebase-domain-security/)
+- [Google Firebase Vulnerability Disclosure](https://apis.io/security/google-firebase/google-firebase-vulnerability-disclosure/)
 
-- Deployment
-- Hosting
-- Web
+#### OAuth scopes (1)
 
-#### Properties
+The permissions the API asks for.
 
-- [Documentation](https://firebase.google.com/docs/reference/hosting/rest)
-- [Postman Collection](collections/firebase-cloud-messaging.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/firebase-cloud-messaging.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/firebase-realtime-database.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/firebase-realtime-database.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Google Firebase Scopes](https://apis.io/scopes/google-firebase/google-firebase-scopes/)
 
-### Firebase Remote Config API
+#### Plans and pricing (1)
 
-The Firebase Remote Config API enables developers to change the behavior and appearance of their apps without requiring users to download an update. The API allows publishing new Remote Config templates, managing conditions and parameters, and rolling back to previous configurations.
+Published plans, tiers and prices.
 
-- **Human URL:** [https://firebase.google.com/docs/remote-config](https://firebase.google.com/docs/remote-config)
-- **Base URL:** `https://firebaseremoteconfig.googleapis.com`
+- [Google Firebase Plans Pricing](https://apis.io/plans/google-firebase/google-firebase-plans-pricing/)
 
-#### Tags
+#### Rate limits (1)
 
-- Configuration
-- Feature Flags
-- Remote Config
+Published request limits.
 
-#### Properties
+- [Google Firebase Rate Limits](https://apis.io/rate-limits/google-firebase/google-firebase-rate-limits/)
 
-- [Documentation](https://firebase.google.com/docs/reference/remote-config/rest)
-- [Postman Collection](collections/firebase-cloud-messaging.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/firebase-cloud-messaging.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/firebase-realtime-database.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/firebase-realtime-database.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### FinOps (1)
 
-## Common Properties
+What the API costs to run, by operation.
 
-- [GitHub Organization](https://github.com/firebase)
-- [LinkedIn](https://www.linkedin.com/showcase/firebase)
-- [Getting Started](https://firebase.google.com/docs)
+- [Google Firebase Finops](https://apis.io/finops/google-firebase/google-firebase-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.google.com/)
+- [Getting started](https://firebase.google.com/docs)
 - [Pricing](https://firebase.google.com/pricing)
-- [Authentication](https://firebase.google.com/docs/admin/setup)
-- [Console](https://console.firebase.google.com)
-- [S D Ks](https://firebase.google.com/docs/libraries)
 - [Support](https://firebase.google.com/support)
-- [Status Page](https://status.firebase.google.com)
-- [JSON-LD](json-ld/google-firebase-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Integrations](https://firebase.google.com/integrations)
+- [Blog](https://firebase.blog/rss.xml)
+- [GitHub](https://github.com/firebase)
+- [Status](https://status.firebase.google.com)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 44.2** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 59.7 |
+| Contract governance | 13.6 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 56.0 |
+| Access clarity | 15.8 |
+
+**Agent readiness 24.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 32.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/google-firebase/](https://apis.io/providers/google-firebase/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Google Firebase: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/google-firebase/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
